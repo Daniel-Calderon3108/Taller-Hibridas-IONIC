@@ -6,8 +6,8 @@
       </figure>
       <h1 class="app-name">Optica DCA</h1>
       <p class="texts description">Inicia una nueva aventura con Optica DCA y descubre una nueva forma de ver el mundo.</p>
-      <button class="btn btn-start" (click)="navigateToLogin()">Comenzar</button>
-      <p class="link">Registrate</p>
+      <button class="btn btn-start" (click)="navigate('/login')">Comenzar</button>
+      <p class="link" (click)="navigate('/register')">Registrate</p>
     </section>
   </body>
 </ion-content>

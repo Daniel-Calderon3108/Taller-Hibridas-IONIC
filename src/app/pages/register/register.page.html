@@ -1,0 +1,56 @@
+<ion-content>
+  <body class="screen">
+      <section class="container login-container">
+        <header class="header">
+          <figure class="app-icon pulse">
+            <img src="assets/images/logo.png" alt="Logo" class="logo-image">
+          </figure>
+          <h1 class="app-name">Optica DCA</h1>
+        </header>
+        <p class="texts">¿Quieres ser parte de nuestro equipo?, registrate y entra al mejor grupo</p>
+        <form action="" class="register" [formGroup]="form">
+          <label class="input-container">
+            Nombre
+            <input type="text" formControlName="name" [ngClass]="{'error': form.get('name')?.invalid && form.get('name')?.dirty}">
+          </label>
+          <p *ngIf="form.get('name')?.invalid && form.get('name')?.dirty" class="error">El campo nombre no puede estar vacio</p>
+          <label class="input-container">
+            Apellido
+            <input type="text" formControlName="lastname" [ngClass]="{'error': form.get('lastname')?.invalid && form.get('lastname')?.dirty}">
+          </label>
+          <p *ngIf="form.get('lastname')?.invalid && form.get('lastname')?.dirty" class="error">El campo apellido no puede estar vacio</p>
+          <label class="input-container">
+            Correo
+            <input type="text" formControlName="email" [ngClass]="{'error': form.get('email')?.invalid && form.get('email')?.dirty}">
+          </label>
+          <p *ngIf="form.get('email')?.invalid && form.get('email')?.dirty" class="error">El campo correo no puede estar vacio</p>
+          <label class="input-container">
+            Teléfono
+            <input type="text" formControlName="phone" [ngClass]="{'error': form.get('phone')?.invalid && form.get('phone')?.dirty}">
+          </label>
+          <p *ngIf="form.get('phone')?.invalid && form.get('phone')?.dirty" class="error">El campo teléfono no puede estar vacio</p>
+          <label class="input-container">
+            Clave
+            <input type="password" formControlName="password" [ngClass]="{'error': form.get('password')?.invalid && form.get('password')?.dirty}">
+          </label>
+          <p *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="error">El campo clave no puede estar vacio</p>
+          <label class="input-container">
+            Repetir Clave
+            <input type="password" formControlName="repeatPassword" [ngClass]="{'error': form.get('repeatPassword')?.invalid && form.get('repeatPassword')?.dirty}">
+          </label>
+          <p *ngIf="form.get('repeatPassword')?.invalid && form.get('repeatPassword')?.dirty" class="error">El campo repetir clave no puede estar vacio</p>
+          <button class="btn btn-login">Registrarse</button>
+
+          <button class="btn btn-google">
+            <img src="assets/images/google.png" alt="Google Logo" class="icon">
+            Registrarse con Google
+          </button>
+          <p class="link link-register">
+            <span>Tienes cuenta?</span> 
+            <i class="link" (click)="navigate('/login')"> Inicia Sesión</i>
+          </p>
+        </form>
+      </section>
+
+  </body>
+</ion-content>

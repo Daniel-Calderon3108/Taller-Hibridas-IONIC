@@ -8,16 +8,19 @@
           <h1 class="app-name">Optica DCA</h1>
         </header>
         <p class="texts">La aventura esta por iniciar, por favor inicia sesión</p>
-        <form action="">
+        <form [formGroup]=form>
+          
           <label class="input-container">
             <img src="assets/user.svg" alt="" class="icon">
-            <input type="text">
+            <input type="text" formControlName="user" [ngClass]="{'error': form.get('user')?.invalid && form.get('user')?.dirty}">
           </label>
+          <p *ngIf="form.get('user')?.invalid && form.get('user')?.dirty" class="error">El campo usuario no puede estar vacio</p>
           <label class="input-container">
             <img src="assets/key.svg" alt="" class="icon">
-            <input type="password">
+            <input type="password" formControlName="password" [ngClass]="{'error': form.get('password')?.invalid && form.get('password')?.dirty}">
           </label>
-          <button class="btn btn-login">Ingresar</button>
+          <p *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="error">El campo clave no puede estar vacio</p>
+          <button class="btn btn-login" [disabled]="form.invalid">Ingresar</button>
           <p class="link">Recupera tu contraseña</p>
 
           <button class="btn btn-google">
@@ -26,7 +29,7 @@
           </button>
           <p class="link link-register">
             <span>No tienes cuenta?</span> 
-            Registrate
+            <i (click)="navigate('/register')" class="link"> Registrate</i>
           </p>
         </form>
       </section>
