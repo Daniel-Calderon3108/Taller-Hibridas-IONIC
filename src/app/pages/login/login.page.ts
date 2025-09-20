@@ -27,4 +27,20 @@ export class LoginPage implements OnInit {
   navigate(page : string) {
     this.router.navigate([page]);
   }
+
+  login() {
+    if(this.form.valid) {
+      let storedUser = localStorage.getItem("user");
+      let storedPassword = localStorage.getItem("password");
+
+      let encryptedPassword = btoa(this.form.value.password ? this.form.value.password : "");
+
+      if(storedUser === this.form.value.user && storedPassword === encryptedPassword) {
+        this.navigate('/main');
+        return;
+      }
+      alert("Usuario o clave incorrecta");
+      this.form.reset();
+    }
+  }
 }

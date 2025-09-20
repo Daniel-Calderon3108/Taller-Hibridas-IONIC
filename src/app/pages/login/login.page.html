@@ -8,7 +8,7 @@
           <h1 class="app-name">Optica DCA</h1>
         </header>
         <p class="texts">La aventura esta por iniciar, por favor inicia sesión</p>
-        <form [formGroup]=form>
+        <form [formGroup]=form autocomplete="off">
           
           <label class="input-container">
             <img src="assets/user.svg" alt="" class="icon">
@@ -20,7 +20,7 @@
             <input type="password" formControlName="password" [ngClass]="{'error': form.get('password')?.invalid && form.get('password')?.dirty}">
           </label>
           <p *ngIf="form.get('password')?.invalid && form.get('password')?.dirty" class="error">El campo clave no puede estar vacio</p>
-          <button class="btn btn-login" [disabled]="form.invalid">Ingresar</button>
+          <button class="btn btn-login" [disabled]="form.invalid" (click)="login()">Ingresar</button>
           <p class="link">Recupera tu contraseña</p>
 
           <button class="btn btn-google">

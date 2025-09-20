@@ -23,8 +23,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
   },
   {
+    path: 'main',
+    loadComponent: () => import('./pages/main/main.page').then( m => m.MainPage)
+  },
+  {
     path: '**', // Captura rutas no encontradas -> wildcard
     redirectTo: 'splash'
   },
-
 ];
