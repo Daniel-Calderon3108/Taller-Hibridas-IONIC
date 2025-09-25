@@ -5,7 +5,7 @@
         <img src="assets/images/logo.png" alt="Logo" class="logo-image">
       </figure>
       <h1 class="app-name">Optica DCA</h1>
-      <p class="texts description">Bienvenido {{ user }}, te encuentras en la página principal de nuestra App.</p>
+      <p class="texts description">Bienvenido {{ userData.name + ' ' + userData.lastname || "Usuario No Verificado" }}, te encuentras en la página principal de nuestra App.</p>
       <button class="btn" (click)="logout()">Cerrar Sesión</button>
     </section>
   </body>

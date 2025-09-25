@@ -1,0 +1,17 @@
+<!-- Header -->
+<ion-header class="header">
+  <ion-toolbar class="toolbar-custom">
+    <!-- Sección Izquierda : Botón de hamburguesa (móvil) y logo - información de la app -->
+    <div class="header-left" slot="start">
+      <!-- Botón de hamburguesa - solo visible en móvil -->
+       <ion-button class="btn-hamburger" expand="full" (click)="openMenu()" *ngIf="isMobile">
+        <ion-icon name="menu-outline" slot="icon-only"></ion-icon>
+       </ion-button>
+       <!-- Contenedor del logo(igual que en la app) - nombre de la app -->
+      
+    </div>
+    <!-- Sección derecha : Botón de perfil -->
+    <!-- Móvil muestre las iniciales/imagen del usuario -->
+    <!-- Web muestra lo anterior y el nombre completo -->
+  </ion-toolbar>
+</ion-header>

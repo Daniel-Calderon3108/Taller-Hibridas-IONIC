@@ -233,6 +233,119 @@ i.link {
     font-style: normal;
 }
 
+// Estilos Página de perfil
+
+.home-container {
+    max-width: 1000px;
+}
+
+.user-card {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h1 {
+        text-transform: capitalize;
+        margin: 0;
+        padding: 0;
+    }
+
+    .user-info {
+        width: 100%;
+        border-top: 2px solid var(--white);
+        border-bottom: 2px solid var(--white);
+        padding: 25px 15px;
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        position: relative;
+
+        &::after {
+            content: "";
+            width: 200px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        figure {
+            width: 100px;
+            height: 100px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secundary-color);
+            cursor: pointer;
+
+            p {
+                font-size: 2rem;
+                color: var(--black);
+                font-weight: 500;
+            }
+
+            &:hover {
+                animation: pulse 1.5s infinite;
+            }
+        }
+
+        .info-user {
+            flex-grow: 1;
+
+            display: flex;
+            gap: 1.5rem;
+            padding: 10px;
+            border-left: 2px solid var(--white);
+
+            text-align: left;
+            
+            h2 {
+                font-size: 1rem;
+                color: var(--primary-color);
+            }
+
+            p {
+                font-size: .8rem;
+            }
+        }
+
+    }
+
+    .description-user p {
+        font-size: .9rem;
+    }
+}
+
+// Media Queries
+@media screen and (max-width: 600px) {
+    .user-card .user-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .info-user {
+            width: 100%;
+            justify-content: center;
+
+            border-left: none;
+            border-top: 2px solid var(--white);
+            padding-top: 15px;
+            gap: 0.5rem;
+        }
+    }
+}
+
+// Animaciones
 @keyframes pulse {
     0% {
         transform: scale(1);

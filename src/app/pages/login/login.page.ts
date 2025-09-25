@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonContent, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class LoginPage implements OnInit {
 
@@ -30,8 +29,11 @@ export class LoginPage implements OnInit {
 
   login() {
     if(this.form.valid) {
-      let storedUser = localStorage.getItem("user");
-      let storedPassword = localStorage.getItem("password");
+
+      let userData = JSON.parse(localStorage.getItem("user") || '{}');
+
+      let storedUser = userData.username;
+      let storedPassword = userData.password;
 
       let encryptedPassword = btoa(this.form.value.password ? this.form.value.password : "");
 

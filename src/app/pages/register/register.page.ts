@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonContent, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class RegisterPage implements OnInit {
 
@@ -43,12 +43,19 @@ export class RegisterPage implements OnInit {
       return;
     }
 
-     // Encriptar contraseña
-      let encryptedPassword = btoa(this.form.value.password ? this.form.value.password : "");
+    // Crear objeto usuario y encriptar contraseña
+    const userData = {
+      name: this.form.value.name,
+      lastname: this.form.value.lastname,
+      email: this.form.value.email,
+      phone: this.form.value.phone,
+      username: this.form.value.username,
+      password: btoa(this.form.value.password ? this.form.value.password : "")
+    };
 
-      localStorage.setItem("user", this.form.value.username ? this.form.value.username : "");
-      localStorage.setItem("password", encryptedPassword);
+    // Guardar en localStorage como string JSON
+    localStorage.setItem('user', JSON.stringify(userData));
 
-      this.navigate('/login');
+    this.navigate('/login');
   }
 }

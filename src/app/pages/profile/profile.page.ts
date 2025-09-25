@@ -2,23 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
   standalone: true,
   imports: [IonContent, CommonModule, FormsModule]
 })
-export class HomePage implements OnInit {
+export class ProfilePage implements OnInit {
 
-  constructor(private router : Router) { }
+  user : string = localStorage.getItem('user') || 'Invitado';
+  
+  constructor() { }
 
   ngOnInit() {
   }
 
-  navigate(page : string) {
-    this.router.navigate([page]);
-  }
 }
