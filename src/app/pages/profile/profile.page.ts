@@ -12,11 +12,37 @@ import { IonContent } from '@ionic/angular/standalone';
 })
 export class ProfilePage implements OnInit {
 
-  user : string = localStorage.getItem('user') || 'Invitado';
+  userActual : any = null;
   
   constructor() { }
 
   ngOnInit() {
+    this.getUserActual();
+  }
+
+  getUserActual() {
+    try {
+      this.userActual = localStorage.getItem("user");
+
+      if (!this.userActual) {
+        console.log("Usuario no se ha logueado");
+        return;
+      }
+      this.userActual = JSON.parse(this.userActual);
+    } catch (error) {
+      this.userActual = null;
+    }
+  }
+
+  // Obtener y mostrar el nombre del usuario
+  getUserName() : string {
+    return this.userActual ? this.userActual.name + " " + this.userActual.lastname : "Usuario No Verificado";
+  }
+
+  // Obtener iniciales del usuario
+  getUserInitials() : string {
+    if(!this.userActual) return "UNV";
+    return (this.userActual.name.charAt(0) + this.userActual.lastname.charAt(0)).toUpperCase();
   }
 
 }

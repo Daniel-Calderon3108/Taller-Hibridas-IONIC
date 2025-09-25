@@ -3,11 +3,11 @@
     <section class="container home-container">
 
       <article class="user-card">
-        <h1>nombre completo</h1>
+        <h1>{{ getUserName() }}</h1>
         <section class="user-info">
           <figure>
             <!-- <img src="assets/images/user.svg" alt> -->
-            <p>NC</p>
+            <p>{{ getUserInitials()  }}</p>
           </figure>
           <article class="info-user">
             <div class="column-user">
@@ -17,11 +17,11 @@
               </div>
               <div class="row-user">
                 <h2>Correo Electrónico</h2>
-                <p>correo@gmail.com</p>
+                <p>{{ userActual.email }}</p>
               </div>
               <div class="row-user">
                 <h2>Teléfono</h2>
-                <p>+57 300 1234567</p>
+                <p>{{ userActual.phone }}</p>
               </div>
             </div>
             <div class="column-user">
@@ -35,7 +35,7 @@
               </div>
               <div class="row-user">
                 <h2>Usuario</h2>
-                <p>{{ user }}</p>
+                <p>{{ userActual.username }}</p>
               </div>
             </div>
           </article>
