@@ -1,3 +1,10 @@
+export interface User {
+    name: string;
+    email: string;
+    password: string;
+    phone: string;
+}
+
 export interface Product {
     id: number;
     name: string;
