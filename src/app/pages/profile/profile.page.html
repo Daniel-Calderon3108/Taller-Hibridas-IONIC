@@ -1,5 +1,6 @@
 <ion-content>
   <body class="screen">
+    <app-header></app-header>
     <section class="container home-container">
 
       <article class="user-card">
@@ -17,11 +18,11 @@
               </div>
               <div class="row-user">
                 <h2>Correo Electrónico</h2>
-                <p>{{ userActual.email }}</p>
+                <p>{{ userActual ? userActual.email : "usuario@gmail.com" }}</p>
               </div>
               <div class="row-user">
                 <h2>Teléfono</h2>
-                <p>{{ userActual.phone }}</p>
+                <p>{{ userActual ? userActual.phone : "3333333333" }}</p>
               </div>
             </div>
             <div class="column-user">
@@ -35,7 +36,7 @@
               </div>
               <div class="row-user">
                 <h2>Usuario</h2>
-                <p>{{ userActual.username }}</p>
+                <p>{{ userActual ? userActual.username : "usuario" }}</p>
               </div>
             </div>
           </article>
