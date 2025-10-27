@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule, MenuController  } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { cartOutline, menuOutline  } from "ionicons/icons";
 
 @Component({
   selector: 'app-header',
@@ -18,7 +20,9 @@ export class HeaderComponent  implements OnInit {
 
   userActual : any = null;
 
-  constructor(private router: Router, private menu: MenuController) { }
+  constructor(private router: Router, private menuController: MenuController) {
+    addIcons({ cartOutline, menuOutline });
+   }
 
   ngOnInit() {
     this.getUserActual();
@@ -41,7 +45,7 @@ export class HeaderComponent  implements OnInit {
   // Navegar a otra pagina
   navigate(page: string) {
     this.router.navigate([page]);
-    this.menu.close();
+    // this.menu.close();
   }
 
   // Obtener y mostrar el nombre del usuario
@@ -56,7 +60,11 @@ export class HeaderComponent  implements OnInit {
   }
 
   // Abrir menu
-  openMenu() {
-    this.menu.open();
+  // openMenu() {
+  //   this.menu.open();
+  // }
+
+  toggleMenu() {
+    this.menuController.toggle();
   }
 }
